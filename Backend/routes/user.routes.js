@@ -9,7 +9,16 @@ router.post('/register',[
     body('email').isEmail().withMessage('Invalid Email'),
     body('fullname.firstname').isLength({min:3}).withMessage('Firstname  name must be 3 letter'),
     body('password').isLength({min:5}).withMessage('Password must 5 letter')
-])
+],
+userController.registerUser
+)
+
+router.post('/login',[
+    body('email').isEmail().withMessage('Invalid Email'),
+    body('password').isLength({min:5}).withMessage('Password must 5 letter')
+],
+userController.loginUser
+)
 
 
 
