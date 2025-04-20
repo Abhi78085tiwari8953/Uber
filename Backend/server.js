@@ -1,15 +1,12 @@
-require('dotenv').config();
 const http = require('http');
-const app = require('./app'); // your Express app
-const connectToDb = require('./db/db'); // <- make sure this path is correct
-
+const app = require('./app');
+const { initializeSocket } = require('./socket');
 const port = process.env.PORT || 3000;
 
-connectToDb().then(() => {
-  const server = http.createServer(app);
+const server = http.createServer(app);
 
-  server.listen(port, () => {
-    console.log(`🚀 Server is running on http://localhost:${port}`);
-  });
+initializeSocket(server);
+
+server.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
 });
-
