@@ -29,6 +29,12 @@ const userSchema = new mongoose.Schema({
     socketId: {
         type: String,
     },
+    otp: {
+        type: Number,
+    },
+    otpExpires: {
+        type: Date,
+    }
 })
 
 userSchema.methods.generateAuthToken = function () {

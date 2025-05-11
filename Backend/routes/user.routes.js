@@ -24,6 +24,12 @@ router.get('/profile', authMiddleware.authUser, userController.getUserProfile)
 
 router.get('/logout', authMiddleware.authUser, userController.logoutUser)
 
+router.post('/forgot-password/send-otp', userController.verificationOTP);
+
+router.post('/forgot-password/verify-otp', userController.verifyOTP);
+
+router.post('/forgot-password/change-password', userController.changePassword);
+
 
 
 module.exports = router;

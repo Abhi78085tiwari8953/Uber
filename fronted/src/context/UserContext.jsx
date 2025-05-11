@@ -24,4 +24,3 @@ const UserContext = ({ children }) => {
 
 export default UserContext
 
-

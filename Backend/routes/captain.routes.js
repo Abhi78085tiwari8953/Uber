@@ -30,5 +30,11 @@ router.get('/profile', authMiddleware.authCaptain, captainController.getCaptainP
 
 router.get('/logout', authMiddleware.authCaptain, captainController.logoutCaptain)
 
+router.post('/forgot-password/send-otp', captainController.verificationOTP);
+
+router.post('/forgot-password/verify-otp', captainController.verifyOTP);
+
+router.post('/forgot-password/change-password', captainController.changePassword);
+
 
 module.exports = router;
